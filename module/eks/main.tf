@@ -26,13 +26,10 @@ resource "aws_eks_cluster" "eks" {
 
 # AddOns for EKS Cluster (only when ASG is created)
 resource "aws_eks_addon" "eks-addons" {
-  for_each                    = var.create_node_groups ? { for idx, addon in var.addons : idx => addon } : {}
-  cluster_name                = aws_eks_cluster.eks[0].name
-  addon_name                  = each.value.name
-  addon_version               = each.value.version
-  resolve_conflicts_on_create = "OVERWRITE"
-  resolve_conflicts_on_update = "OVERWRITE"
-
+  for_each      = var.create_node_groups ? { for idx, addon in var.addons : idx => addon } : {}
+  cluster_name  = aws_eks_cluster.eks[0].name
+  addon_name    = each.value.name
+  addon_version = each.value.version
 }
 
 # NodeGroups - Using Launch Templates and CloudFormation ASG instead

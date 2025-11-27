@@ -60,14 +60,14 @@ module "eks" {
   depends_on             = [module.vpc]
   additional_policy_name = var.additional_policy_name
 }
-# ===== ArgoCD Module =====
-# module "argocd" {
-#   source = "./module/argocd"
+#===== ArgoCD Module =====
+module "argocd" {
+  source = "./module/argocd"
 
-#   eks_cluster_endpoint              = module.eks.eks_cluster_endpoint
-#   eks_cluster_certificate_authority = module.eks.eks_cluster_certificate_authority
-#   eks_cluster_token                 = data.aws_eks_cluster_auth.eks.token
-# }
+  eks_cluster_endpoint              = module.eks.eks_cluster_endpoint
+  eks_cluster_certificate_authority = module.eks.eks_cluster_certificate_authority
+  eks_cluster_token                 = data.aws_eks_cluster_auth.eks.token
+}
 
 # ===== Outputs =====
 output "vpc_id" {

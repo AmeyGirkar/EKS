@@ -229,7 +229,5 @@ variable "additional_policy_name" {
   description = "Name of the additional IAM policy to attach to the node‑group role"
   default     = "my-additional-policy-1"
 }
-data "aws_eks_cluster_auth" "eks" {
-  name = module.eks.eks_cluster_name
-}
+
   

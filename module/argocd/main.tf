@@ -15,10 +15,11 @@ resource "helm_release" "argocd" {
   # values = var.custom_values
 }
 
+
 provider "helm" {
   kubernetes {
-    host                   = module.eks.eks_cluster_endpoint
-    cluster_ca_certificate = base64decode(module.eks.eks_cluster_certificate_authority)
-    token                  = data.aws_eks_cluster_auth.eks.token
+    host                   = var.eks_cluster_endpoint
+    cluster_ca_certificate = base64decode(var.eks_cluster_certificate_authority)
+    token                  = var.eks_cluster_token
   }
 }

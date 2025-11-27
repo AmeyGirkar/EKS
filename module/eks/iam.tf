@@ -43,16 +43,9 @@ output "eksClusterRole_arn" {
   value = aws_iam_role.eksClusterRole.arn
 }
 
-# ===== EKS NodeGroup IAM Role =====
-
-
-
-
-
-
-
-
-# Optional: For SSM Session Manager access to nodes
+data "aws_eks_cluster_auth" "eks" {
+  name = aws_eks_cluster.eks.name
+}
 
 
 

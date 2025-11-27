@@ -227,7 +227,7 @@ variable "additional_policy_arns" {
 variable "additional_policy_name" {
   type        = string
   description = "Name of the additional IAM policy to attach to the node‑group role"
-  default     = "my-additional-policy-1"
+  default     = "my-additional-policy"
 }
 
-  
+

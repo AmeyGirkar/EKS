@@ -12,5 +12,5 @@ resource "helm_release" "argocd" {
   # }]
 
   # Pass any custom values the user supplies (YAML or map)
-  values = var.custom_values
+  # values = var.custom_values
 }

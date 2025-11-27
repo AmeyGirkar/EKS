@@ -16,8 +16,8 @@ variable "chart_version" {
   default     = "5.51.0" # update as needed
 }
 
-variable "custom_values" {
-  description = "Optional custom Helm values (YAML string or map)"
-  type        = any
-  default     = {}
-}
+# variable "custom_values" {
+#   description = "Optional custom Helm values (YAML string or map)"
+#   type        = any
+#   default     = {}
+# }

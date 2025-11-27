@@ -46,22 +46,6 @@ variable "addons" {
   }))
   description = "List of EKS add-ons to install"
   default = [
-    {
-      name    = "vpc-cni",
-      version = "v1.20.0-eksbuild.1"
-    },
-    {
-      name    = "coredns"
-      version = "v1.12.2-eksbuild.4"
-    },
-    {
-      name    = "kube-proxy"
-      version = "v1.33.0-eksbuild.2"
-    },
-    {
-      name    = "aws-ebs-csi-driver"
-      version = "v1.46.0-eksbuild.1"
-    }
   ]
 }
 

@@ -45,7 +45,8 @@ variable "addons" {
     version = string
   }))
   description = "List of EKS add-ons to install"
-  default     = []
+  default = [
+  ]
 }
 
 variable "ondemand_instance_types" {

@@ -167,7 +167,7 @@ variable "ondemand_instance_types" {
 variable "desired_capacity_on_demand" {
   type        = number
   description = "Desired number of on-demand nodes"
-  default     = 2
+  default     = 3
 }
 
 variable "min_capacity_on_demand" {

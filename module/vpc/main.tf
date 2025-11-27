@@ -1,6 +1,4 @@
-locals {
-  cluster-name = var.cluster-name
-}
+
 
 resource "aws_vpc" "vpc" {
   cidr_block           = var.cidr-block
@@ -10,7 +8,6 @@ resource "aws_vpc" "vpc" {
 
   tags = {
     Name = var.vpc-name
-    Env  = var.env
 
   }
 }
@@ -19,9 +16,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
 
   tags = {
-    Name                                          = var.igw-name
-    env                                           = var.env
-    "kubernetes.io/cluster/${local.cluster-name}" = "owned"
+    Name = var.igw-name
   }
 
   depends_on = [aws_vpc.vpc]
@@ -35,10 +30,9 @@ resource "aws_subnet" "public-subnet" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name                                          = "${var.pub-sub-name}-${count.index + 1}"
-    Env                                           = var.env
-    "kubernetes.io/cluster/${local.cluster-name}" = "owned"
-    "kubernetes.io/role/elb"                      = "1"
+    Name = "${var.pub-sub-name}-${count.index + 1}"
+
+    "kubernetes.io/role/elb" = "1"
   }
 
   depends_on = [aws_vpc.vpc,
@@ -53,10 +47,8 @@ resource "aws_subnet" "private-subnet" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name                                          = "${var.pri-sub-name}-${count.index + 1}"
-    Env                                           = var.env
-    "kubernetes.io/cluster/${local.cluster-name}" = "owned"
-    "kubernetes.io/role/internal-elb"             = "1"
+    Name                              = "${var.pri-sub-name}-${count.index + 1}"
+    "kubernetes.io/role/internal-elb" = "1"
   }
 
   depends_on = [aws_vpc.vpc,
@@ -74,7 +66,6 @@ resource "aws_route_table" "public-rt" {
 
   tags = {
     Name = var.public-rt-name
-    env  = var.env
   }
 
   depends_on = [aws_vpc.vpc
@@ -126,7 +117,6 @@ resource "aws_route_table" "private-rt" {
 
   tags = {
     Name = var.private-rt-name
-    env  = var.env
   }
 
   depends_on = [aws_vpc.vpc,

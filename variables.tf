@@ -145,11 +145,11 @@ variable "addons" {
     },
     {
       name    = "coredns"
-      version = "v1.12.2-eksbuild.4"
+      version = "v1.11.4-eksbuild.14"
     },
     {
       name    = "kube-proxy"
-      version = "v1.33.0-eksbuild.2"
+      version = "v1.32.5-eksbuild.2"
     },
     {
       name    = "aws-ebs-csi-driver"

@@ -1,9 +1,10 @@
 resource "helm_release" "argocd" {
-  name       = var.release_name
-  repository = "https://argoproj.github.io/argo-helm"
-  chart      = "argo-cd"
-  version    = var.chart_version
-  namespace  = var.namespace
+  name             = var.release_name
+  repository       = "https://argoproj.github.io/argo-helm"
+  chart            = "argo-cd"
+  version          = var.chart_version
+  namespace        = var.namespace
+  create_namespace = true
 
   # Expose the UI via a LoadBalancer (easy for a demo).  Change to Ingress if you prefer.
   # set = [{

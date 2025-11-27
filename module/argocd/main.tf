@@ -6,6 +6,10 @@ resource "helm_release" "argocd" {
   namespace  = var.namespace
 
   # Expose the UI via a LoadBalancer (easy for a demo).  Change to Ingress if you prefer.
+  set = [{
+    name  = "server.service.type"
+    value = "LoadBalancer"
+  }]
 
   # Pass any custom values the user supplies (YAML or map)
   values = var.custom_values

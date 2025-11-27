@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 jobs:
-  terraform-plan:
+  terraform-destroy:
     runs-on: ubuntu-latest
 
     steps:

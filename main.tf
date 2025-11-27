@@ -60,6 +60,10 @@ module "eks" {
   depends_on             = [module.vpc]
   additional_policy_name = var.additional_policy_name
 }
+# ===== ArgoCD Module =====
+module "argocd" {
+  source = "./module/argocd"
+}
 
 # ===== Outputs =====
 output "vpc_id" {

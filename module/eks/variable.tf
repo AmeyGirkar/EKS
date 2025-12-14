@@ -161,7 +161,7 @@ variable "public_subnet_ids" {
 }
 
 data "aws_ssm_parameter" "node_ami" {
-  name = "/aws/service/eks/optimized-ami/1.31/amazon-linux-2/recommended/image_id"
+  name = "/aws/service/eks/optimized-ami/${var.cluster-version}/amazon-linux-2/recommended/image_id"
 }
 
 variable "vpc_id" {

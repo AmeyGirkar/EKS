@@ -227,6 +227,12 @@ resource "aws_cloudformation_stack" "autoscaling_group" {
   Resources:
     NodeGroup:
       Type: AWS::AutoScaling::AutoScalingGroup
+      UpdatePolicy:
+        AutoScalingRollingUpdate:
+          MinInstancesInService: "${var.node_group_min_size}"
+          MaxBatchSize: "1"
+          PauseTime: "PT5M"
+          WaitOnResourceSignals: "true"
       Properties:
         VPCZoneIdentifier: ${jsonencode(var.public_subnet_ids)}
         MinSize: "${var.node_group_min_size}"

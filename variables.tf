@@ -182,29 +182,7 @@ variable "max_capacity_on_demand" {
   default     = 4
 }
 
-variable "spot_instance_types" {
-  type        = list(string)
-  description = "Instance types for spot node group"
-  default     = ["t2.small", "t2.medium"]
-}
 
-variable "desired_capacity_spot" {
-  type        = number
-  description = "Desired number of spot nodes"
-  default     = 1
-}
-
-variable "min_capacity_spot" {
-  type        = number
-  description = "Minimum number of spot nodes"
-  default     = 0
-}
-
-variable "max_capacity_spot" {
-  type        = number
-  description = "Maximum number of spot nodes"
-  default     = 3
-}
 
 # ===== EKS IAM Variables =====
 variable "cluster_role_name" {

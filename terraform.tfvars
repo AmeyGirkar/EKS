@@ -50,10 +50,7 @@ desired_capacity_on_demand = 3
 min_capacity_on_demand     = 1
 max_capacity_on_demand     = 4
 
-spot_instance_types   = ["t2.small", "t2.medium"]
-desired_capacity_spot = 1
-min_capacity_spot     = 0
-max_capacity_spot     = 3
+
 
 # IAM Roles
 cluster_role_name      = "eksClusterRole"

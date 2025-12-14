@@ -41,11 +41,7 @@ module "eks" {
   min_capacity_on_demand     = var.min_capacity_on_demand
   max_capacity_on_demand     = var.max_capacity_on_demand
 
-  # Spot Node Group
-  spot_instance_types   = var.spot_instance_types
-  desired_capacity_spot = var.desired_capacity_spot
-  min_capacity_spot     = var.min_capacity_spot
-  max_capacity_spot     = var.max_capacity_spot
+
 
   # IAM Roles
   cluster_role_name      = var.cluster_role_name

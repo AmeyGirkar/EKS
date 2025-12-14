@@ -13,3 +13,4 @@
 *.exe
 *.dll
 *.so
+!terraform.tfvars
